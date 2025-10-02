@@ -5,8 +5,8 @@
             <div>
                 <div class="flex items-center mb-4">
                     <img src="{{ asset('images/logo-kwu.png') }}" onerror="this.src='{{ asset('images/logo.png') }}'"
-                        class="w-12 h-12 rounded-full mr-3 object-cover" alt="Logo Kelompok KWU">
-                    <span class="font-bold text-xl">Kelompok KWU</span>
+                        class="w-16 h-16 rounded-full mr-3 object-cover" alt="Logo Kelompok KWU">
+                    <span class="font-bold text-xl">Kelompok 4 KWU</span>
                 </div>
                 <p class="text-gray-300 text-sm leading-relaxed">Penyedia solusi teknologi terintegrasi untuk
                     UMKM dan bisnis menengah: software, SaaS, hardware, dan layanan implementasi serta support.</p>
@@ -83,17 +83,6 @@
                     </a>
                 </div>
             </div>
-        </div>
-
-        <div class="border-t border-gray-700 pt-8 text-center text-gray-400 text-sm">
-            <p>&copy; 2025 Kelompok 4 KWU FT-07-A .</p>
-            @if (config('app.debug'))
-                <div class="mt-2 text-xs">
-                    <span class="mr-4">CMS: </span>
-                    <span class="mr-4">Last Refresh: </span>
-                    <span>Auto-refresh: </span>
-                </div>
-            @endif
         </div>
     </div>
 </footer>

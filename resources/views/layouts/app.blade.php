@@ -14,13 +14,26 @@
     <!-- Font Awesome untuk ikon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- tambahan CSS kecil untuk underline aktif navbar -->
+    <style>
+        /* underline aktif untuk navbar */
+        .nav-active {
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: .25rem;
+            color: var(--primary);
+        }
+
+        /* sedikit transisi untuk perubahan state */
+        .nav-link {
+            transition: color .18s ease, border-color .18s ease;
+        }
+    </style>
 </head>
 
 <body class="bg-gray-50">
 
     <!-- Tombol Scroll-to-top (muncul saat menggulir) -->
     <button id="scrollTopBtn" class="floating-btn hidden" title="Kembali ke atas" aria-label="Scroll to top">
-        <i class="fas fa-chevron-up text-xl"></i>
     </button>
 
     @include('layouts.navbar')
@@ -31,136 +44,97 @@
 
     @include('layouts.footer')
 
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
-
+    <!-- Script: aktifkan kelas .nav-active sesuai section yang terlihat -->
     <script>
-        // JavaScript untuk toggle menu seluler
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = Array.from(document.querySelectorAll('section[id]'));
+            const navLinks = Array.from(document.querySelectorAll('a.nav-link'));
+            // Fix: ensure debounce variable exists
+            let _lastToggle = 0;
+
+            // pasang observer untuk highlight sesuai section
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.id;
+                        navLinks.forEach(a => {
+                            const href = a.getAttribute('href') || '';
+                            const target = href.startsWith('#') ? href.slice(1) : null;
+                            if (target === id) {
+                                a.classList.add('nav-active');
+                            } else {
+                                a.classList.remove('nav-active');
+                            }
+                        });
+                    }
+                });
+            }, {
+                root: null,
+                // sesuaikan offset supaya navbar sticky tidak menutupi
+                rootMargin: '-30% 0px -50% 0px',
+                threshold: 0
+            });
+
+            sections.forEach(s => observer.observe(s));
+
+            // klik pada nav segera menandai active (dan tutup mobile menu jika ada)
+            navLinks.forEach(a => {
+                a.addEventListener('click', (e) => {
+                    // biarkan default anchor scroll berjalan; tambahkan class segera
+                    navLinks.forEach(x => x.classList.remove('nav-active'));
+                    a.classList.add('nav-active');
+
+                    // tutup mobile menu bila terbuka dan pastikan aria-expanded tersinkron
+                    const mobileMenuEl = document.getElementById('mobile-menu');
+                    const mobileBtnEl = document.getElementById('mobile-menu-button');
+                    if (mobileMenuEl && !mobileMenuEl.classList.contains('hidden')) {
+                        mobileMenuEl.classList.add('hidden');
+                    }
+                    if (mobileBtnEl) {
+                        mobileBtnEl.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+
+            // toggle mobile menu (jika tombol ada) — more robust with debug logs
+            const mobileBtn = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-
-            if (mobileMenuButton && mobileMenu) {
-                mobileMenuButton.addEventListener('click', function() {
-                    mobileMenu.classList.toggle('hidden');
-                    // Toggle ikon hamburger menjadi 'x' dan kembali
-                    const icon = mobileMenuButton.querySelector('i');
-                    if (mobileMenu.classList.contains('hidden')) {
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                    } else {
-                        icon.classList.remove('fa-bars');
-                        icon.classList.add('fa-times');
-                    }
-                });
-
-                // Tutup menu seluler saat tautan diklik
-                mobileMenu.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileMenu.classList.add('hidden');
-                        mobileMenuButton.querySelector('i').classList.remove('fa-times');
-                        mobileMenuButton.querySelector('i').classList.add('fa-bars');
-                    });
-                });
-            }
-
-            // Scroll-to-top button behavior
-            const scrollTopBtn = document.getElementById('scrollTopBtn');
-            const scrollThreshold = 200; // px scrolled before showing button
-
-            function toggleScrollTopBtn() {
-                if (!scrollTopBtn) return;
-                if (window.scrollY > scrollThreshold) {
-                    scrollTopBtn.classList.remove('hidden');
-                    scrollTopBtn.classList.add('animate__fadeIn');
-                } else {
-                    scrollTopBtn.classList.add('hidden');
-                }
-            }
-
-            // Smooth scroll behavior for modern browsers
-            function scrollToTopSmooth() {
-                if ('scrollBehavior' in document.documentElement.style) {
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-                } else {
-                    // Fallback for older browsers
-                    let pos = window.scrollY;
-                    const step = () => {
-                        pos = Math.floor(pos * 0.8);
-                        window.scrollTo(0, pos);
-                        if (pos > 0) requestAnimationFrame(step);
-                    };
-                    requestAnimationFrame(step);
-                }
-            }
-
-            // Wire up events
-            window.addEventListener('scroll', toggleScrollTopBtn, {
-                passive: true
-            });
-            if (scrollTopBtn) {
-                scrollTopBtn.addEventListener('click', scrollToTopSmooth);
-            }
-
-            // Simple notification system
-            window.showNotification = function(message, type = 'info') {
-                // Remove existing notifications
-                const existing = document.querySelector('.cms-notification');
-                if (existing) {
-                    existing.remove();
-                }
-
-                // Create notification element
-                const notification = document.createElement('div');
-                notification.className =
-                    `cms-notification fixed top-4 right-4 z-50 px-4 py-2 rounded-lg shadow-lg text-white`;
-
-                // Set background color based on type
-                switch (type) {
-                    case 'success':
-                        notification.style.backgroundColor = '#10b981';
-                        break;
-                    case 'error':
-                        notification.style.backgroundColor = '#ef4444';
-                        break;
-                    default:
-                        notification.style.backgroundColor = '#3b82f6';
-                }
-
-                notification.textContent = message;
-                document.body.appendChild(notification);
-
-                // Remove after 3 seconds
-                setTimeout(() => {
-                    if (notification) {
-                        notification.remove();
-                    }
-                }, 3000);
-            };
-
-            // Optional: check CMS connectivity if your project provides the endpoint
-            /*
-            fetch('/api/cms/status')
-                .then(response => response.json())
-                .then(data => {
-                    if (!data.connected) {
-                        showNotification('CMS tidak terhubung', 'error');
-                    }
-                })
-                .catch(error => {
-                    console.warn('Could not check CMS status:', error);
-                });
-            */
-
-            // Keyboard shortcut untuk refresh (Ctrl+Shift+R)
-            document.addEventListener('keydown', function(e) {
-                if (e.ctrlKey && e.shiftKey && e.key === 'R') {
+            const mobileOverlay = document.getElementById('mobile-overlay');
+            console.log('[nav] DOM ready. mobileBtn=%o, mobileMenu=%o, mobileOverlay=%o', mobileBtn, mobileMenu, mobileOverlay);
+            if (mobileBtn && mobileMenu && mobileOverlay) {
+                mobileBtn.addEventListener('click', (e) => {
                     e.preventDefault();
-                    window.refreshCMSData();
-                }
-            });
+                    const now = Date.now();
+                    if (now - _lastToggle < 300) {
+                        console.log('[nav] hamburger toggle ignored (debounce)');
+                        return;
+                    }
+                    _lastToggle = now;
+                    const expanded = mobileBtn.getAttribute('aria-expanded') === 'true';
+                    mobileBtn.setAttribute('aria-expanded', String(!expanded));
+                    mobileMenu.classList.toggle('hidden');
+                    mobileOverlay.classList.toggle('hidden');
+                    console.log('[nav] hamburger toggled. after aria-expanded=%s, menuHidden=%s, overlayHidden=%s', mobileBtn.getAttribute('aria-expanded'), mobileMenu.classList.contains('hidden'), mobileOverlay.classList.contains('hidden'));
+                });
+
+                // close when clicking a mobile nav link
+                mobileMenu.querySelectorAll('a.nav-link').forEach(a => {
+                    a.addEventListener('click', (ev) => {
+                        mobileMenu.classList.add('hidden');
+                        mobileOverlay.classList.add('hidden');
+                        mobileBtn.setAttribute('aria-expanded', 'false');
+                        console.log('[nav] mobile link closed menu. aria-expanded now=%s, menuHidden=%s, overlayHidden=%s', mobileBtn.getAttribute('aria-expanded'), mobileMenu.classList.contains('hidden'), mobileOverlay.classList.contains('hidden'));
+                    });
+                });
+
+                // close when clicking the overlay
+                mobileOverlay.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileOverlay.classList.add('hidden');
+                    mobileBtn.setAttribute('aria-expanded', 'false');
+                    console.log('[nav] overlay clicked, closing menu');
+                });
+            }
         });
     </script>
 </body>
