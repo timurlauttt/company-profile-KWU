@@ -1,0 +1,156 @@
+/* Import font Poppins dari Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Variabel CSS kustom untuk palet warna yang konsisten */
+:root {
+--primary: #DA252B;
+    /* Palet disesuaikan dengan primary merah */
+    --secondary: #B71C1C; /* darken primary for accents */
+    --accent: #FDECEA; /* soft warm accent */
+    --dark: #3B2F2F; /* deep warm neutral for text */
+    --light: #FFF6F6; /* very light warm background */
+    /* Putih Pudar (latar belakang terang) */
+}
+
+/* Terapkan font Poppins ke body */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light);
+    /* Menggunakan variabel light */
+}
+
+/* Latar belakang gradien kustom untuk bagian-bagian tertentu */
+.gradient-bg {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+}
+
+/* Efek hover kartu untuk interaksi halus */
+.card-hover {
+    transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+    /* Angkat kartu saat di-hover */
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    /* Bayangan yang ditingkatkan */
+}
+
+/* Animasi garis bawah tautan navigasi */
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Bayangan teks untuk judul bagian hero */
+.hero-text {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Efek garis bawah untuk judul bagian */
+.section-title {
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 4px;
+    bottom: -8px;
+    left: 25%;
+    background: var(--primary);
+    /* Menggunakan warna utama baru */
+    border-radius: 2px;
+}
+
+/* Efek zoom gambar item galeri */
+.gallery-item {
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+    /* Zoom gambar saat di-hover */
+}
+
+/* Penempatan dan gaya badge tanggal berita */
+.news-date {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--primary);
+    /* Menggunakan warna utama baru */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Gaya tombol aksi mengambang */
+.floating-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--primary);
+    /* Menggunakan warna utama baru */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.floating-btn:hover {
+    transform: scale(1.1);
+    /* Perbesar tombol saat di-hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Enable smooth scrolling for in-page anchors and programmatic scrolls */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Prevent anchored sections from being hidden behind the sticky navbar */
+section {
+    /* approximate navbar height + small gap */
+    scroll-margin-top: 5.5rem;
+    /* ~88px */
+    /* optional small top padding so content doesn't stick to top visually */
+    padding-top: 0.25rem;
+}
+
+/* Slightly larger offset on small screens if navbar becomes taller */
+@media (max-width: 768px) {
+    section {
+        scroll-margin-top: 6.5rem;
+        /* ~104px */
+    }
+}
