@@ -3,12 +3,12 @@
     <div class="max-w-7xl mx-auto flex justify-between items-center">
         <div class="flex items-center gap-2">
             <!-- Logo Company -->
-            <a href="{{ route('welcome') }}"><img src="{{ asset('images/logo-kwu.png') }}"
+            <a href="{{ route('welcome') }}"><img src="{{ asset('images/logo.png') }}"
                     onerror="this.src='{{ asset('images/logo.png') }}'" class="w-16  h-16 rounded-full object-cover"
                     alt="Logo Kelompok KWU FT-07-A"></a>
 
             <div>
-                <span class="font-bold text-base md:text-xl block">Kelompok 4 <br>KWU FT-07-A</span>
+                <span class="font-bold text-base md:text-xl block">JENISO</span>
             </div>
         </div>
 
