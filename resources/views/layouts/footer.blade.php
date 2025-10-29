@@ -6,10 +6,9 @@
                 <div class="flex items-center mb-4">
                     <img src="{{ asset('images/logo-kwu.png') }}" onerror="this.src='{{ asset('images/logo.png') }}'"
                         class="w-16 h-16 rounded-full mr-3 object-cover" alt="Logo Kelompok KWU">
-                    <span class="font-bold text-xl">Kelompok 4 KWU</span>
+                    <span class="font-bold text-xl">JENISO</span>
                 </div>
-                <p class="text-gray-300 text-sm leading-relaxed">Penyedia solusi teknologi terintegrasi untuk
-                    UMKM dan bisnis menengah: software, SaaS, hardware, dan layanan implementasi serta support.</p>
+                <p class="text-gray-300 text-sm leading-relaxed">Penyedia solusi teknologi terintegrasi untuk berbagai sektor bisnis melalui layanan software, SaaS, perangkat keras, serta dukungan implementasi dan support yang andal.</p>
             </div>
 
             <div>
@@ -29,57 +28,37 @@
                 <h3 class="text-lg font-semibold mb-4">Kontak</h3>
                 <ul class="space-y-2 text-gray-300">
                     <li class="flex items-start">
-                        <i class="fas fa-map-marker-alt mt-1 mr-3 text-[var(--accent)] flex-shrink-0"></i>
-                        <span>Jl. Dulu Aja Siapa Tau Cocok</span>
-                    </li>
-                    <li class="flex items-start">
                         <i class="fas fa-phone-alt mt-1 mr-3 text-[var(--accent)] flex-shrink-0"></i>
-                        <a href="tel:081234567890" class="hover:text-white transition">
-                            0812-3456-7890
+                        <a href="tel:87761198115" class="hover:text-white transition">
+                            0877-6119-8115
                         </a>
                     </li>
                     <li class="flex items-start">
                         <i class="fab fa-whatsapp mt-1 mr-3 text-[var(--accent)] flex-shrink-0"></i>
-                        <a href="#" target="_blank" class="hover:text-white transition">
+                        <a href="https://wa.me/087761198115" target="_blank" class="hover:text-white transition">
                             Chat Sales
                         </a>
                     </li>
                     <li class="flex items-start">
                         <i class="fas fa-envelope mt-1 mr-3 text-[var(--accent)] flex-shrink-0"></i>
-                        <a href="mailto:info@kelompok-kwu.id" class="hover:text-white transition">
-                            info@kelompok-kwu.id
+                        <a href="mailto:admin@jeniso.com" class="hover:text-white transition">
+                            admin@jeniso.com
                         </a>
                     </li>
                 </ul>
             </div>
-
             <div>
                 <h3 class="text-lg font-semibold mb-4">Media Sosial</h3>
                 <div class="flex space-x-4">
-                    <a href="#"
-                        class="w-10 h-10 rounded-full bg-gray-700 hover:bg-[var(--primary)] transition flex items-center justify-center text-white text-xl"
-                        title="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#"
-                        class="w-10 h-10 rounded-full bg-gray-700 hover:bg-[var(--primary)] transition flex items-center justify-center text-white text-xl"
-                        title="Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#"
+                    <a href="https://www.instagram.com/jeniso_group?igsh=MWd0OGlwcHNkbHdzcg=="
                         class="w-10 h-10 rounded-full bg-gray-700 hover:bg-[var(--primary)] transition flex items-center justify-center text-white text-xl"
                         title="Instagram">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="#" target="_blank"
-                        class="w-10 h-10 rounded-full bg-gray-700 hover:bg-green-500 transition flex items-center justify-center text-white text-xl"
-                        title="WhatsApp">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
                     <a href="#"
                         class="w-10 h-10 rounded-full bg-gray-700 hover:bg-[var(--primary)] transition flex items-center justify-center text-white text-xl"
-                        title="YouTube">
-                        <i class="fab fa-youtube"></i>
+                        title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
                     </a>
                 </div>
             </div>

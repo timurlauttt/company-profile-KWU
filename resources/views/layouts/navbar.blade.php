@@ -14,13 +14,10 @@
 
         <!-- Tautan Navigasi Desktop -->
         <nav class="hidden md:flex space-x-6 items-center" aria-label="Primary navigation">
-            <a href="#about" class="nav-link text-sm uppercase font-medium">Tentang</a>
-            <a href="#visi" class="nav-link text-sm uppercase font-medium">Visi & Misi</a>
             <a href="#produk" class="nav-link text-sm uppercase font-medium">Produk & Layanan</a>
             <a href="#usp" class="nav-link text-sm uppercase font-medium">Nilai Tambah</a>
-            <a href="#struktur" class="nav-link text-sm uppercase font-medium">Struktur</a>
-            <a href="#pricing" class="nav-link text-sm uppercase font-medium">Pricing</a>
             <a href="#kontak" class="nav-link text-sm uppercase font-medium">Kontak</a>
+            <a href="{{ route('about') }}" class="nav-link text-sm uppercase font-medium">Tentang Kami</a>
         </nav>
 
         <!-- Tombol Menu Seluler (Ikon Hamburger) -->
