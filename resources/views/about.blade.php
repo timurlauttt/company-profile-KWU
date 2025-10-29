@@ -31,9 +31,17 @@
         <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-6 leading-tight text-white hero-text">
             <span class="bg-gradient-animation">Tentang Kami</span>
         </h1>
-        <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 max-w-4xl mx-auto text-white/90 font-light">
-            <span class="font-normal text-[var(--accent)]">Perusahaan kami merupakan Software House, SaaS Provider, dan IT Solution Partner yang berfokus pada penyediaan solusi teknologi terintegrasi (one-stop solution) mencakup pengembangan software, layanan SaaS, serta penyediaan hardware pendukung. Model bisnis kami meliputi proyek kustom seperti pembuatan aplikasi, website, dan sistem informasi; produk SaaS siap pakai seperti POS, absensi, payroll, dan ERP ringan; serta paket bundling software dan hardware yang mencakup tablet, printer, smart mobile POS, hingga server kecil untuk mendukung transformasi digital bisnis secara menyeluruh.</span> &amp;
-        </p>
+        <div class="mb-8 mt-16 mx-auto text-white/90 font-light leading-relaxed space-y-2">
+            <p class="text-base sm:text-lg md:text-xl lg:text-2xl max-w-6xl mx-auto text-center">
+                <span class="font-normal text-[var(--accent)]">Perusahaan kami merupakan Software House, SaaS Provider, dan IT Solution Partner yang berfokus pada penyediaan solusi teknologi terintegrasi (one-stop solution) mencakup pengembangan software, layanan SaaS, serta penyediaan hardware pendukung.</span>
+            </p>
+            <p class="text-base sm:text-lg md:text-xl lg:text-2xl max-w-5xl mx-auto text-center">
+                <span class="font-normal text-[var(--accent)]">Model bisnis kami meliputi proyek kustom seperti pembuatan aplikasi, website, dan sistem informasi; produk SaaS siap pakai seperti POS, absensi, payroll, dan ERP</span>
+            </p>
+            <p class="text-base sm:text-lg md:text-xl lg:text-2xl max-w-4xl mx-auto text-center">
+                <span class="font-normal text-[var(--accent)]">serta paket bundling software dan hardware yang mencakup tablet, printer, smart mobile POS, hingga server kecil untuk mendukung transformasi digital bisnis secara menyeluruh.</span>
+            </p>
+        </div>
     </div>
 
     <!-- Indikator Gulir Ke Bawah -->
@@ -130,8 +138,7 @@
     </div>
 </section>
 <!-- Bagian Struktur Divisi -->
-<section id="struktur" class="py-20 px-4 bg-gradient-to-r from-white via-gray-50 to-white relative overflow-hidden">
-    <!-- Background Decorations -->
+<!-- <section id="struktur" class="py-20 px-4 bg-gradient-to-r from-white via-gray-50 to-white relative overflow-hidden">
     <div class="absolute top-0 left-0 w-96 h-96 bg-[var(--primary)] opacity-5 rounded-full -translate-y-48 -translate-x-48"></div>
     <div class="absolute bottom-0 right-0 w-80 h-80 bg-[var(--secondary)] opacity-10 rounded-full translate-y-32 translate-x-32"></div>
 
@@ -226,5 +233,5 @@
                 <p class="text-gray-700 leading-relaxed">Fokus: perekrutan, pelatihan, dan pengembangan tim internal.</p>
             </div>
         </div>
-</section>
+</section> -->
 @endsection
