@@ -15,9 +15,9 @@
         <!-- Tautan Navigasi Desktop -->
         <nav class="hidden md:flex space-x-6 items-center" aria-label="Primary navigation">
             <a href="#produk" class="nav-link text-sm uppercase font-medium">Produk & Layanan</a>
-            <a href="#usp" class="nav-link text-sm uppercase font-medium">Nilai Tambah</a>
+            <a href="#usp" class="nav-link text-sm uppercase font-medium">Keunggulan</a>
             <a href="#kontak" class="nav-link text-sm uppercase font-medium">Kontak</a>
-            <a href="{{ route('about') }}" class="nav-link text-sm uppercase font-medium">Tentang Kami</a>
+            <a href="{{ route('about') }}" class="nav-link text-sm uppercase font-medium {{ request()->routeIs('about') ? 'text-red-600 border-b-2 border-red-600' : '' }}">Tentang Kami</a>
         </nav>
 
         <!-- Tombol Menu Seluler (Ikon Hamburger) -->
@@ -34,13 +34,10 @@
 <div id="mobile-menu" class="hidden fixed inset-x-0 top-0 bg-[var(--dark)] text-white w-full z-50">
     <div class="max-w-7xl mx-auto px-4 pt-20 pb-6">
         <nav class="flex flex-col items-stretch space-y-2" aria-label="Mobile navigation">
-            <a href="#about" class="nav-link text-white text-base uppercase font-medium w-full text-left py-3 px-3 rounded hover:bg-[var(--primary)] transition">Tentang</a>
-            <a href="#visi" class="nav-link text-white text-base uppercase font-medium w-full text-left py-3 px-3 rounded hover:bg-[var(--primary)] transition">Visi & Misi</a>
             <a href="#produk" class="nav-link text-white text-base uppercase font-medium w-full text-left py-3 px-3 rounded hover:bg-[var(--primary)] transition">Produk & Layanan</a>
-            <a href="#usp" class="nav-link text-white text-base uppercase font-medium w-full text-left py-3 px-3 rounded hover:bg-[var(--primary)] transition">Nilai Tambah</a>
-            <a href="#struktur" class="nav-link text-white text-base uppercase font-medium w-full text-left py-3 px-3 rounded hover:bg-[var(--primary)] transition">Struktur</a>
-            <a href="#pricing" class="nav-link text-white text-base uppercase font-medium w-full text-left py-3 px-3 rounded hover:bg-[var(--primary)] transition">Pricing</a>
+            <a href="#usp" class="nav-link text-white text-base uppercase font-medium w-full text-left py-3 px-3 rounded hover:bg-[var(--primary)] transition">Keunggulan</a>
             <a href="#kontak" class="nav-link text-white text-base uppercase font-medium w-full text-left py-3 px-3 rounded hover:bg-[var(--primary)] transition">Kontak</a>
+            <a href="{{ route('about') }}" class="nav-link text-white text-base uppercase font-medium w-full text-left py-3 px-3 rounded hover:bg-[var(--primary)] transition {{ request()->routeIs('about') ? 'bg-[var(--primary)]' : '' }}">Tentang Kami</a>
         </nav>
     </div>
 </div>

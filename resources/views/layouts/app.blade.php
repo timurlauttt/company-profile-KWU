@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title') - Jeniso </title>
+    <title>@yield('title') JENISO</title>
     <!-- Favicon - menggunakan gambar placeholder untuk demonstrasi -->
     <link rel="icon" href="{{ asset('images/logo.png') }}">
     <!-- Tailwind CSS CDN -->

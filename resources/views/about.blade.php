@@ -1,6 +1,50 @@
 @extends('layouts.app')
 @section('title', 'Tentang Kami')
 @section('content')
+
+<section class="relative h-[90vh] bg-gradient-to-br from-[var(--primary)] via-[var(--secondary)] to-[var(--dark)] bg-cover bg-center flex items-center justify-center text-center p-4 overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-10 left-10 w-32 h-32 bg-white rounded-full animate-pulse"></div>
+        <div class="absolute top-40 right-20 w-20 h-20 bg-white rounded-full animate-pulse delay-75"></div>
+        <div class="absolute bottom-20 left-1/4 w-16 h-16 bg-white rounded-full animate-pulse delay-150"></div>
+        <div class="absolute bottom-40 right-1/3 w-24 h-24 bg-white rounded-full animate-pulse delay-300"></div>
+    </div>
+
+    <!-- Tech Grid Background -->
+    <div class="absolute inset-0 opacity-5">
+        <div class="grid grid-cols-12 grid-rows-12 gap-4 h-full p-8">
+            <div class="bg-white rounded"></div>
+            <div class="bg-white rounded col-span-2"></div>
+            <div class="bg-white rounded"></div>
+            <div class="bg-white rounded row-span-2"></div>
+            <div class="bg-white rounded col-span-3 row-span-2"></div>
+            <div class="bg-white rounded"></div>
+            <div class="bg-white rounded col-span-2"></div>
+            <div class="bg-white rounded row-span-3"></div>
+            <div class="bg-white rounded"></div>
+            <div class="bg-white rounded col-span-2 row-span-2"></div>
+        </div>
+    </div>
+
+    <div class="container mx-auto relative z-10">
+        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-6 leading-tight text-white hero-text">
+            <span class="bg-gradient-animation">Tentang Kami</span>
+        </h1>
+        <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 max-w-4xl mx-auto text-white/90 font-light">
+            <span class="font-normal text-[var(--accent)]">Perusahaan kami merupakan Software House, SaaS Provider, dan IT Solution Partner yang berfokus pada penyediaan solusi teknologi terintegrasi (one-stop solution) mencakup pengembangan software, layanan SaaS, serta penyediaan hardware pendukung. Model bisnis kami meliputi proyek kustom seperti pembuatan aplikasi, website, dan sistem informasi; produk SaaS siap pakai seperti POS, absensi, payroll, dan ERP ringan; serta paket bundling software dan hardware yang mencakup tablet, printer, smart mobile POS, hingga server kecil untuk mendukung transformasi digital bisnis secara menyeluruh.</span> &amp;
+        </p>
+    </div>
+
+    <!-- Indikator Gulir Ke Bawah -->
+    <div class="absolute bottom-0 left-0 right-0 flex justify-center pb-6">
+        <a href="#visi" class="text-white animate-bounce hover:text-[var(--accent)] transition">
+            <i class="fas fa-chevron-down text-3xl"></i>
+        </a>
+    </div>
+</section>
+
+
 <!-- Bagian Visi & Misi -->
 <section id="visi" class="py-20 px-4 bg-gradient relative overflow-hidden">
     <!-- Background Elements -->

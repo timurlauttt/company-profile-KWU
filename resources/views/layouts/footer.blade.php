@@ -8,7 +8,7 @@
                         class="w-16 h-16 rounded-full mr-3 object-cover" alt="Logo Kelompok KWU">
                     <span class="font-bold text-xl">JENISO</span>
                 </div>
-                <p class="text-gray-300 text-sm leading-relaxed">Penyedia solusi teknologi terintegrasi untuk berbagai sektor bisnis melalui layanan software, SaaS, perangkat keras, serta dukungan implementasi dan support yang andal.</p>
+                <p class="text-gray-300 text-sm leading-relaxed">Penyedia solusi teknologi terintegrasi untuk berbagai sektor bisnis melalui layanan software.</p>
             </div>
 
             <div>
@@ -35,8 +35,8 @@
                     </li>
                     <li class="flex items-start">
                         <i class="fab fa-whatsapp mt-1 mr-3 text-[var(--accent)] flex-shrink-0"></i>
-                        <a href="https://wa.me/087761198115" target="_blank" class="hover:text-white transition">
-                            Chat Sales
+                        <a href="https://wa.link/rfr0yw" target="_blank" class="hover:text-white transition">
+                            WA Admin
                         </a>
                     </li>
                     <li class="flex items-start">
